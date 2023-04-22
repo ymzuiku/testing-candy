@@ -39,7 +39,7 @@ export function renderTastingMask(ele: HTMLElement) {
     mask = document.createElement("div");
     mask.id = "testing-mask";
     mask.style.pointerEvents = "none";
-    mask.style.transition = `all ${testingOptions.stepDelay < 50 ? 50 : testingOptions.stepDelay * 0.7}ms ease`;
+    mask.style.transition = `all ${testingOptions.stepDelay < 100 ? 100 : testingOptions.stepDelay * 0.7}ms ease`;
     mask.style.background = "rgba(255,100,100,0.3)";
     mask.style.border = "1px solid rgba(128,128,128,0.3)";
     mask.style.width = "30px";

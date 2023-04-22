@@ -1,4 +1,5 @@
 import { renderTastingLog } from "./render-tasting-log";
+import { testingOptions } from "./testing-options";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Any = any;
@@ -12,8 +13,9 @@ export function bindPromiseDelay(event: AnyPromiseFn, delay: number) {
 
   return async function (...args: unknown[]) {
     const res = baseFetch(...args).finally(() => {});
-
-    renderTastingLog("Fetch delay: " + delay + "ms");
+    if (delay >= testingOptions.minLogDelay) {
+      renderTastingLog("Fetch delay: " + delay + "ms");
+    }
     await new Promise((res) => setTimeout(res, delay));
     return res;
   };

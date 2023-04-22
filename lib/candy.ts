@@ -48,7 +48,9 @@ async function testElement(
 ) {
   await candy.it(text + (key || ""), async () => {
     if (beforeWait) {
-      renderTastingLog("Before waiting: " + beforeWait + "ms, " + text);
+      if (beforeWait >= testingOptions.minLogDelay) {
+        renderTastingLog("Before waiting: " + beforeWait + "ms, " + text);
+      }
       await waiting(beforeWait);
     }
     const ele = await fn();
@@ -56,7 +58,9 @@ async function testElement(
       renderTastingMask(ele);
     }
     if (afterWait) {
-      renderTastingLog("After waiting: " + afterWait + "ms, " + text);
+      if (afterWait >= testingOptions.minLogDelay) {
+        renderTastingLog("After waiting: " + afterWait + "ms, " + text);
+      }
       await waiting(afterWait);
     }
   });
@@ -85,7 +89,9 @@ export const candy = {
 
     await waitPageLoaded();
     setDone(key + cache);
-    renderTastingLog("Step delay: " + testingOptions.stepDelay + "ms");
+    if (testingOptions.stepDelay >= testingOptions.minLogDelay) {
+      renderTastingLog("Step delay: " + testingOptions.stepDelay + "ms");
+    }
     await waiting(testingOptions.stepDelay);
     renderTastingLog(lockKey);
     await waiting(20);

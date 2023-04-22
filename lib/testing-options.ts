@@ -6,6 +6,7 @@ export const testingOptions = {
   fetchDelay: 0,
   maskTime: 0,
   keepSameKey: false,
+  minLogDelay: 250,
   testReStartKey: "",
   testAgainKey: "",
   enable: void 0 as boolean | void,
