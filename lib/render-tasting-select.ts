@@ -75,7 +75,9 @@ function setSelecteValues(div: HTMLDivElement) {
     const value = e.target.value as string;
     selects.value = TEST;
     if (value === TEST_STEP_DELAY) {
-      const t = Number(prompt("Please input step time(ms):", numberToString(task.getFetchDelay(), "0")));
+      const t = Number(
+        prompt("Please input step time(ms):", numberToString(task.getStepTime(), String(testingOptions.stepDelay))),
+      );
       if (isNaN(t)) {
         return;
       }
@@ -83,7 +85,9 @@ function setSelecteValues(div: HTMLDivElement) {
       return;
     }
     if (value === TEST_FETCH_DELAY) {
-      const t = Number(prompt("Please input step time(ms):", numberToString(task.getFetchDelay(), "0")));
+      const t = Number(
+        prompt("Please input step time(ms):", numberToString(task.getFetchDelay(), String(testingOptions.fetchDelay))),
+      );
       if (isNaN(t)) {
         return;
       }
