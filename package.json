@@ -1,6 +1,6 @@
 {
   "name": "@amarkdown/testing-candy",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "cjs/index.js",
   "types": "lib/index.ts",
   "exports": {

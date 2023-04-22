@@ -98,3 +98,6 @@ export async function databaseE2e() {
 ```
 
 ### Example
+
+- [example/src/main.tsx](https://github.com/ymzuiku/testing-candy/blob/main/example/src/main.tsx)
+- [example/src/click-e2e.ts](https://github.com/ymzuiku/testing-candy/blob/main/example/src/click-e2e.ts)
