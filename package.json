@@ -1,0 +1,22 @@
+{
+  "name": "@amarkdown/testing-candy",
+  "version": "0.1.0",
+  "main": "lib/index.ts",
+  "types": "lib/index.ts",
+  "private": false,
+  "description": "e2e testing",
+  "dependencies": {
+    "crypto-es": "^1.2.7",
+    "@faker-js/faker": "^7.6.0",
+    "@testing-library/dom": "^9.2.0",
+    "@testing-library/user-event": "^14.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymzuiku/testing-candy.git"
+  },
+  "bugs": {
+    "url": "git+https://github.com/ymzuiku/testing-candy.git"
+  },
+  "homepage": "git+https://github.com/ymzuiku/testing-candy.git"
+}

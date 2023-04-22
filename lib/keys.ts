@@ -1,0 +1,9 @@
+export const TEST_ALL = "Test all";
+export const TEST = "TEST";
+export const TEST_STEP_DELAY = "Step delay";
+export const TEST_FETCH_DELAY = "Fetch delay";
+export const TEST_AGAIN = "Test again";
+export const QUIT_TESTING_MODE = "!! Quit testing mode";
+export const TESTING = "testing";
+export const TESTING_STATE = "testing-state";
+export const TESTING_RESULT = "testing-state-result";
