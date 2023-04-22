@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-sync-pkg.js
+build.js
 link.sh
 temp
 temp.html

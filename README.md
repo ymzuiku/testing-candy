@@ -10,18 +10,6 @@ In your Browser run e2e testing
 npm/pnpm/yarn install @amarkdown/testing-candy
 ```
 
-If you are using `Vite` + `Typescript`, it is ready to use out of the box.
-
-This library has not been compiled to `TypeScript` and its internal code remains in TypeScript. If you are using Next.js, you need to use the next-transpile-modules package.
-
-```js
-const withTM = require("next-transpile-modules");
-
-module.exports = async (phase, { defaultConfig }) => {
-  return withTM(["@amarkdown/testing-candy"])(defaultConfig);
-};
-```
-
 ### 2. Use import("@amarkdown/testing-candy") in your project
 
 only import library in dev host:
@@ -30,7 +18,11 @@ only import library in dev host:
 import { router } from "router";
 import { registerE2e, roleE2e, memberE2e, databaseE2e } from "./e2e";
 
-if (isWebDev || location.host === "your-dev-host.com") {
+const isWebDev =
+  process.env.NODE_ENV === "development" ||
+  location.host === "your-dev-host.com";
+
+if (isWebDev) {
   import("@amarkdown/testing-candy").then(
     ({ testingOptions, createTesting }) => {
       // option, default: testingOptions.push = ()=> location.href = url;
@@ -104,3 +96,5 @@ export async function databaseE2e() {
   // ...
 }
 ```
+
+### Example
