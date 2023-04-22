@@ -79,7 +79,7 @@ export async function registerE2e({ candy, faker, testingLibrary }: Testing) {
   await candy.changeByRole("register_email", email);
   await candy.changeByRole("register_password", pwd);
   await candy.changeByRole("register_password2", pwd);
-  await candy.clickByRole("verification_button", { key: "2" });
+  await candy.clickByRole("verification_button");
   await candy.changeByRole("register_username", email.split("@")[0]);
   await candy.clickByTestId("successful_send_verification");
   await candy.changeByRole("register_code", "999999");
@@ -101,3 +101,29 @@ export async function databaseE2e() {
 
 - [example/src/main.tsx](https://github.com/ymzuiku/testing-candy/blob/main/example/src/main.tsx)
 - [example/src/click-e2e.ts](https://github.com/ymzuiku/testing-candy/blob/main/example/src/click-e2e.ts)
+
+### In NextJs or MutilPage project:
+
+All test state save in memory, if use mutil-page or nextjs, We need save state in session, and ignore old task. Use `keepSameKey`, every candy.clickByRole can save a sessionStorage key, if the key runed, testing can ignore the task.
+
+1. open `keepSameKey`:
+
+```ts
+ import("@amarkdown/testing-candy").then(({ testingOptions, createTesting }) => {
+    testingOptings.keepSameKey = true;
+    // .... other codes
+ )}
+```
+
+2. add candy every key:
+
+```ts
+// if keepSameKey = true:
+
+await candy.clickByRole("button");
+await candy.clickByRole("button"); // this task is ignore
+
+await candy.clickByRole("count", { key: "some-key" });
+await candy.clickByRole("count", { key: "some-key" }); // this task is ignore
+await candy.clickByRole("count", { key: "some-key2" }); // right, add unique key
+```
