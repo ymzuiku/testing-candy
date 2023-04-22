@@ -1,6 +1,7 @@
 import { QUIT_TESTING_MODE, TEST, TESTING, TESTING_STATE, TEST_AGAIN, TEST_FETCH_DELAY, TEST_STEP_DELAY } from "./keys";
 import * as task from "./task";
 import { testingOptions } from "./testing-options";
+import { numberToString } from "./utils";
 
 const baseSelectsPrefix = [TEST, TEST_STEP_DELAY, TEST_FETCH_DELAY, TEST_AGAIN];
 const baseSelectsLast = [QUIT_TESTING_MODE];
@@ -74,7 +75,7 @@ function setSelecteValues(div: HTMLDivElement) {
     const value = e.target.value as string;
     selects.value = TEST;
     if (value === TEST_STEP_DELAY) {
-      const t = Number(prompt("Please input step time(ms):"));
+      const t = Number(prompt("Please input step time(ms):", numberToString(task.getFetchDelay(), "0")));
       if (isNaN(t)) {
         return;
       }
@@ -82,7 +83,7 @@ function setSelecteValues(div: HTMLDivElement) {
       return;
     }
     if (value === TEST_FETCH_DELAY) {
-      const t = Number(prompt("Please input step time(ms):"));
+      const t = Number(prompt("Please input step time(ms):", numberToString(task.getFetchDelay(), "0")));
       if (isNaN(t)) {
         return;
       }

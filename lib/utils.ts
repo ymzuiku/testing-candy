@@ -35,3 +35,13 @@ export async function waiting(delay = 17) {
     }, delay);
   });
 }
+
+export function numberToString(value: number | void | null | string, defaultEmpty = "") {
+  if (typeof value === "string") {
+    return value;
+  }
+  if (value === null || value === void 0) {
+    return defaultEmpty;
+  }
+  return String(value);
+}
