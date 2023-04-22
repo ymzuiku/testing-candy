@@ -1,8 +1,8 @@
 # testing-candy
 
-![](/candy.gif)
+In your Browser run e2e testing
 
-## In react / nextjs / vite-ssr use Browser testing
+![](/candy.gif)
 
 ### 1. Install
 
@@ -10,9 +10,9 @@
 npm/pnpm/yarn install @amarkdown/testing-candy
 ```
 
-If you are using Vite, it is ready to use out of the box.
+If you are using `Vite` + `Typescript`, it is ready to use out of the box.
 
-This library has not been compiled to TypeScript and its internal code remains in TypeScript. If you are using Next.js, you need to use the next-transpile-modules package.
+This library has not been compiled to `TypeScript` and its internal code remains in TypeScript. If you are using Next.js, you need to use the next-transpile-modules package.
 
 ```js
 const withTM = require("next-transpile-modules");
