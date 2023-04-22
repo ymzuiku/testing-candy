@@ -30,10 +30,12 @@ only import library in dev host:
 import { router } from "router";
 import { registerE2e, roleE2e, memberE2e, databaseE2e } from "./e2e";
 
-if (isWebDev || location.host === "dev.amarkdown.com") {
+if (isWebDev || location.host === "your-dev-host.com") {
   import("@amarkdown/testing-candy").then(
     ({ testingOptions, createTesting }) => {
-      testingOptions.push = router.push; // default: testingOptions.push = ()=> location.href = url;
+      // option, default: testingOptions.push = ()=> location.href = url;
+      testingOptions.push = router.push;
+
       createTesting({
         onError: (err: Error, key: string) => {
           alert(err);
