@@ -2,7 +2,7 @@ import * as task from "./task";
 
 export const testingOptions = {
   timeout: 5000,
-  stepDelay: 100,
+  stepDelay: 70,
   fetchDelay: 0,
   maskTime: 0,
   keepSameKey: false,
